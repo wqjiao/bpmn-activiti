@@ -29,7 +29,6 @@
 |-- README.md                             # 简介
 ```
 
-
 ## 权限控制
 
 `页面名称-按钮名称`
@@ -45,3 +44,8 @@ npm run beta
 
 # dev环境
 npm run dev
+
+# 业务
+
+1. pages/Bpmn 流程设计相关页面
+2. pages/ReactSlick 走马灯相关页面

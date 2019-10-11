@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Card, Icon, Carousel} from 'antd';
 import styles from './index.less';
 
-// 轮播图 prev/next 自定义按钮
+// 走马灯 prev/next 自定义按钮
 function SlickArrow(props) {
     const {type, className, onClick} = props;
 

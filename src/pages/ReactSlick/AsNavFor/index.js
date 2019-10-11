@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import styles from './index.less';
 import '@/utils/c3ImgBrowser';
 
-// 轮播图 prev/next 自定义按钮
+// 走马灯 prev/next 自定义按钮
 function SlickArrow(props) {
     const {type, className, onClick} = props;
 

@@ -2,8 +2,8 @@
  * @Author: wqjiao
  * @Date: 2019-09-20 18:10:01
  * @Last Modified by: wqjiao
- * @Last Modified time: 2019-09-20 18:11:46
- * @Description: 信息轮播 -- 在普通 React 项目中，需要将类名的 styles. 替换成字符串类型
+ * @Last Modified time: 2019-10-11 17:30:25
+ * @Description: 走马灯 -- 在普通 React 项目中，需要将类名的 styles. 替换成字符串类型
  */
 import React from 'react';
 import AntdCarousel from './AntdCarousel';
