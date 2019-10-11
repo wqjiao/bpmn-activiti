@@ -2,7 +2,7 @@
  * @Author: wqjiao
  * @Date: 2019-04-04 09:53:49
  * @Last Modified by: wqjiao
- * @Last Modified time: 2019-09-12 11:01:56
+ * @Last Modified time: 2019-10-11 14:49:32
  * @Description: customer 客户信息
  */
 import {
@@ -15,7 +15,7 @@ import {
     initFlowSelect,
     getPageUseDict,
     getProcessData,
-} from '@/services/basicSet';
+} from '@/services/bpmnApi';
 
 export default {
     namespace: 'processManage',

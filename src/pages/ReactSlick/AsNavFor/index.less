@@ -1,0 +1,74 @@
+.carousel {
+    color: #fff;
+    background: rgba(0, 0, 0, 1);
+
+    :global {
+        .slick-slider .slick-arrow {
+            color: currentColor;
+            font-size: 16px;
+        }
+        .slick-slider .slick-arrow:hover {
+            color: #1890ff;
+            font-size: 16px;
+        }
+
+        .variable-width .slick-slide {
+            width: 60px;
+            height: 45px;
+            margin: 0 5px;
+            cursor: pointer;
+            img {
+                width: 60px;
+                height: 45px;
+                padding: 5px;
+                // -webkit-filter: grayscale(100%);
+                // filter: grayscale(100%);
+                border: 1px solid transparent;
+                border-radius: 2px;
+            }
+            &:hover img,
+            &.slick-active img {
+                // filter: grayscale(0);
+                border-color: #1890ff;
+            }
+        }
+    }
+
+    .carouselOne {
+        .slicTrackImg {
+            height: 300px;
+            line-height: 300px;
+        }
+        :global {
+            .slick-slide img {
+                height: 300px;
+                margin: auto;
+                object-fit: scale-down;
+                border: 5px solid #fff;
+            }
+            .slick-arrow {
+                color: currentColor;
+                font-size: 20px;
+            }
+            .slick-arrow:hover {
+                color: #1890ff;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .slickIcons {
+        margin: 24px 0;
+        text-align: right;
+        :global {
+            .anticon {
+                margin: 0 8px;
+                font-size: 22px;
+                cursor: pointer;
+                &:hover {
+                    color: #1890ff;
+                }
+            }
+        }
+    }
+}

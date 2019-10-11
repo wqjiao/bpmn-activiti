@@ -29,6 +29,7 @@
         "@antv/data-set": "^0.10.1",
         "@babel/runtime": "^7.3.1",
         "antd": "^3.13.0",
+        "axios": "^0.19.0",
         "bizcharts": "^3.4.3",
         "bizcharts-plugin-slider": "^2.1.1-beta.1",
         "bpmn-js": "^5.0.3",
@@ -56,8 +57,11 @@
         "react-dom": "^16.7.0",
         "react-fittext": "^1.0.0",
         "react-media": "^1.9.2",
+        "react-slick": "^0.25.2",
         "sftp-after-webpack": "^1.0.5",
-        "umi": "^2.4.4"
+        "slick-carousel": "^1.8.1",
+        "umi": "^2.4.4",
+        "wangeditor": "^3.1.1"
     },
     "devDependencies": {
         "@types/react": "^16.8.1",

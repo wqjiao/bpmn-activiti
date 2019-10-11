@@ -1,0 +1,46 @@
+.carousel {
+    :global {
+        .ant-carousel .slick-prev,
+        .ant-carousel .slick-next,
+        .ant-carousel .slick-prev:hover,
+        .ant-carousel .slick-next:hover {
+            color: currentColor;
+            font-size: inherit;
+        }
+
+        .variable-width .slick-slide {
+            width: 60px;
+            height: 45px;
+            margin: 0 5px;
+            cursor: pointer;
+            img {
+                width: 60px;
+                height: 45px;
+                padding: 5px;
+                // -webkit-filter: grayscale(100%);
+                // filter: grayscale(100%);
+                border: 1px solid transparent;
+                border-radius: 2px;
+            }
+            &:hover img,
+            &.slick-active img {
+                // filter: grayscale(0);
+                border-color: #1890ff;
+            }
+        }
+    }
+
+    .carouselOne {
+        height: 300px;
+        margin-bottom: 20px;
+        line-height: 300px;
+        :global {
+            .slick-slide img {
+                height: 300px;
+                margin: auto;
+                object-fit: scale-down;
+                border: 5px solid #fff;
+            }
+        }
+    }
+}

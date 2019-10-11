@@ -1,0 +1,42 @@
+.carousel :global {
+    .ant-carousel .slick-prev,
+    .ant-carousel .slick-next,
+    .ant-carousel .slick-prev:hover,
+    .ant-carousel .slick-next:hover {
+        color: currentColor;
+        font-size: inherit;
+    }
+}
+
+.customPag :global {
+    .slick-list {
+        height: 300px;
+        margin-bottom: 16px;
+        line-height: 300px;
+    }
+
+    .slick-slide img {
+        height: 300px;
+        margin: auto;
+        object-fit: scale-down;
+    }
+
+    .slick-thumb {
+        position: static;
+        height: 45px;
+        li {
+            width: 60px;
+            height: 45px;
+            margin: 0 5px;
+            background: rgba(0, 0, 0, 0.25);
+            img {
+                width: 100%;
+                height: 100%;
+                filter: grayscale(100%);
+            }
+            &.slick-active img {
+                filter: grayscale(0);
+            }
+        }
+    }
+}

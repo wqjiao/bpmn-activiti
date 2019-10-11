@@ -216,7 +216,7 @@ export default function request(url, option) {
                             type: 'login/logout',
                         });
                     } else {
-                        router.push('/basicSet/processManage');
+                        router.push('/bpmn/processManage');
                     }
                     return;
                 }

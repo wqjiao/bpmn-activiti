@@ -18,28 +18,51 @@ export default [
         component: '../layouts/BasicLayout',
         Routes: ['src/pages/Authorized'],
         routes: [
-            {path: '/', redirect: '/basicSet/processManage'},
-            // 基础设置
+            {path: '/', redirect: '/bpmn/processManage'},
+            // BPMN
             {
-                name: 'basicSet',
+                name: 'bpmn',
                 icon: 'icon-quanxianshezhi',
-                path: '/basicSet',
+                path: '/bpmn',
                 routes: [
                     {
-                        path: '/basicSet/processManage',
+                        path: '/bpmn/processManage',
                         name: 'processManage', // 流程管理
-                        component: './BasicSet/ProcessManage/index',
+                        component: './Bpmn/ProcessManage/index',
                     },
                     {
-                        path: '/basicSet/processManage/edit/:id',
+                        path: '/bpmn/processManage/edit/:id',
                         name: 'processDesign', // 流程设计
                         hideInMenu: true,
-                        component: './BasicSet/ProcessManage/ProcessDesign',
+                        component: './Bpmn/ProcessManage/ProcessDesign',
                     },
                     {
-                        path: '/basicSet/processTrace',
+                        path: '/bpmn/processTrace',
                         name: 'processTrace', // 流程跟踪
-                        component: './BasicSet/ProcessTrace/index',
+                        component: './Bpmn/ProcessTrace/index',
+                    },
+                ],
+            },
+            // ReactSlick
+            {
+                name: 'reactslick',
+                icon: 'icon-quanxianshezhi',
+                path: '/reactslick',
+                routes: [
+                    {
+                        path: '/reactslick/carousel',
+                        name: 'carousel', // antd 面板式
+                        component: './ReactSlick/AntdCarousel/index',
+                    },
+                    {
+                        path: '/reactslick/asnavfor',
+                        name: 'asnavfor', // 缩略图+组件
+                        component: './ReactSlick/AsNavFor/index',
+                    },
+                    {
+                        path: '/reactslick/custompag',
+                        name: 'custompag', // 面板式
+                        component: './ReactSlick/CustomPag/index',
                     },
                 ],
             },

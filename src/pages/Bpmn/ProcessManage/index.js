@@ -2,7 +2,7 @@
  * @Author: wqjiao
  * @Date: 2019-08-23 11:11:27
  * @Last Modified by: wqjiao
- * @Last Modified time: 2019-09-11 18:06:50
+ * @Last Modified time: 2019-10-11 14:49:42
  * @Description: 基础设置 -> 流程管理
  */
 import React, {PureComponent} from 'react';
@@ -68,7 +68,7 @@ class ProcessManage extends PureComponent {
 
     // 流程设计
     handleProcess = processId => {
-        router.push(`/basicSet/processManage/edit/${processId}`);
+        router.push(`/bpmn/processManage/edit/${processId}`);
     };
 
     // 复制流程

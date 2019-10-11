@@ -4,16 +4,34 @@ export default {
             code: 200,
             data: [
                 {
-                    name: '基础设置',
-                    path: '/basicSet',
+                    name: 'BPMN',
+                    path: '/bpmn',
                     children: [
                         {
-                            name: '流程管理',
-                            path: '/basicSet/processManage',
+                            name: 'List',
+                            path: '/bpmn/processManage',
                         },
                         {
-                            name: '流程跟踪',
-                            path: '/basicSet/processTrace',
+                            name: 'Trace',
+                            path: '/bpmn/processTrace',
+                        },
+                    ],
+                },
+                {
+                    name: 'ReactSlick',
+                    path: '/reactslick',
+                    children: [
+                        {
+                            name: 'Carousel',
+                            path: '/reactslick/carousel',
+                        },
+                        {
+                            name: 'AsNavFor',
+                            path: '/reactslick/asnavfor',
+                        },
+                        {
+                            name: 'CustomPag',
+                            path: '/reactslick/custompag',
                         },
                     ],
                 },

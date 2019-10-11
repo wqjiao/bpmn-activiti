@@ -2,7 +2,7 @@
  * @Author: wqjiao
  * @Date: 2019-08-23 11:11:27
  * @Last Modified by: wqjiao
- * @Last Modified time: 2019-09-12 10:59:03
+ * @Last Modified time: 2019-10-11 14:49:52
  * @Description: 基础设置 -> 流程管理 -> 流程设计
  */
 import React, {Component} from 'react';
@@ -256,7 +256,7 @@ class ProcessDesign extends Component {
 
     // 返回列表
     handleBack() {
-        router.push('/basicSet/processManage');
+        router.push('/bpmn/processManage');
     }
 
     // 关闭流程图弹窗

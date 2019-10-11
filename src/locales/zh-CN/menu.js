@@ -10,8 +10,11 @@ export default {
     'menu.account.trigger': '触发报错',
     'menu.account.logout': '退出登录',
 
-    'menu.basicSet': '基础设置',
-    'menu.basicSet.processManage': '流程管理',
-    'menu.basicSet.processDesign': '流程设计',
-    'menu.basicSet.processTrace': '流程跟踪',
+    'menu.bpmn': 'BPMN',
+    'menu.bpmn.processManage': '流程管理',
+    'menu.bpmn.processDesign': '流程设计',
+    'menu.bpmn.processTrace': '流程跟踪',
+    'menu.reactslick.carousel': '面板图',
+    'menu.reactslick.asnavfor': '缩略图',
+    'menu.reactslick.custompag': '自定义页码',
 };
