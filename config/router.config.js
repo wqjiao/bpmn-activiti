@@ -66,6 +66,20 @@ export default [
                     },
                 ],
             },
+            // react-lazyload
+            {
+                name: 'reactLazy',
+                icon: 'icon-quanxianshezhi',
+                path: '/reactLazy',
+                component: './ReactLazy/index',
+                // routes: [
+                //     {
+                //         path: '/reactLazy/',
+                //         name: 'reactLazy',
+                //         component: './ReactSlick/AntdCarousel/index',
+                //     },
+                // ],
+            },
             {
                 component: '404',
             },

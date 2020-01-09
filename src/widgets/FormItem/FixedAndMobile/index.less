@@ -1,0 +1,32 @@
+.fixedAndMobile {
+    :global {
+        .ant-select {
+            display: inline-block;
+            width: 70px;
+        }
+        .ant-select-selection {
+            background: #fafafa;
+            border-right: transparent;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            &:focus,
+            &:hover {
+                border-color: #d9d9d9;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+            }
+        }
+        .ant-input-group-addon .ant-select .ant-select-selection {
+            margin-right: -1px;
+            background-color: inherit;
+        }
+        .ant-select-selection-selected-value {
+            padding-right: 1px;
+        }
+        .ant-input {
+            width: calc(100% - 70px);
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+}

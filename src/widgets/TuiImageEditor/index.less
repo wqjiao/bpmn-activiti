@@ -1,0 +1,177 @@
+.imageeditor {
+    ::-webkit-scrollbar-track {
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px !important;
+        height: 10px !important;
+        background-color: #f5f5f5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.1);
+        background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.1) 25%, transparent);
+        border-radius: 10px;
+    }
+
+    width: 50px;
+    height: 50px;
+    .ant-modal-body {
+        height: 600px !important;
+        padding: 16px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .openimageeditor {
+        cursor: pointer;
+    }
+}
+
+/*!
+ * Toast UI Colorpicker
+ * @version 2.2.0
+ * @author NHNEnt FE Development Team <dl_javascript@nhnent.com>
+ * @license MIT
+ */
+.tui-colorpicker-clearfix {
+    zoom: 1;
+}
+.tui-colorpicker-clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.tui-colorpicker-vml {
+    behavior: url('#default#VML');
+    display: block;
+}
+.tui-colorpicker-container {
+    width: 152px;
+}
+.tui-colorpicker-palette-container {
+    width: 152px;
+}
+.tui-colorpicker-palette-container ul {
+    width: 152px;
+    margin: 0;
+    padding: 0;
+}
+.tui-colorpicker-palette-container li {
+    float: left;
+    margin: 0;
+    padding: 0 3px 3px 0;
+    list-style: none;
+}
+.tui-colorpicker-palette-button {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    outline: none;
+    cursor: pointer;
+}
+.tui-colorpicker-palette-button.tui-colorpicker-selected {
+    border: 2px solid #000;
+}
+.tui-colorpicker-palette-button.tui-colorpicker-color-transparent {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAOCAYAAAD0f5bSAAABfGlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGAqSSwoyGFhYGDIzSspCnJ3UoiIjFJgv8PAzcDDIMRgxSCemFxc4BgQ4MOAE3y7xsAIoi/rgsxK8/x506a1fP4WNq+ZclYlOrj1gQF3SmpxMgMDIweQnZxSnJwLZOcA2TrJBUUlQPYMIFu3vKQAxD4BZIsUAR0IZN8BsdMh7A8gdhKYzcQCVhMS5AxkSwDZAkkQtgaInQ5hW4DYyRmJKUC2B8guiBvAgNPDRcHcwFLXkYC7SQa5OaUwO0ChxZOaFxoMcgcQyzB4MLgwKDCYMxgwWDLoMjiWpFaUgBQ65xdUFmWmZ5QoOAJDNlXBOT+3oLQktUhHwTMvWU9HwcjA0ACkDhRnEKM/B4FNZxQ7jxDLX8jAYKnMwMDcgxBLmsbAsH0PA4PEKYSYyjwGBn5rBoZt5woSixLhDmf8xkKIX5xmbARh8zgxMLDe+///sxoDA/skBoa/E////73o//+/i4H2A+PsQA4AJHdp4IxrEg8AAAGbaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA1LjQuMCI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjEzPC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjE0PC9leGlmOlBpeGVsWURpbWVuc2lvbj4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CghrN1AAAABzSURBVCgVldKxEYAgDAXQD5VOpLuwgi4jlrTMqF00oOd5Aia/CcV/F4oYOgNlrLjvVyCEVJchBjEC25538PeaWTzRMBLxvIL7UZwFwL06qoA6aoAy+gFfJABvJAQPUoCMlICRRd8BzgHzJL4ok9aJ67l4AK9AxVKhHryUAAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+}
+.tui-colorpicker-palette-hex {
+    display: inline-block;
+    width: 60px;
+    font-family: monospace;
+    vertical-align: middle;
+    zoom: 1;
+}
+.tui-colorpicker-palette-preview {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    zoom: 1;
+}
+.tui-colorpicker-palette-toggle-slider {
+    float: right;
+    zoom: 1;
+}
+.tui-colorpicker-slider-container {
+    height: 122px;
+    margin: 5px 0 0 0;
+    zoom: 1;
+}
+.tui-colorpicker-slider-container::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.tui-colorpicker-slider-left {
+    float: left;
+    width: 120px;
+    height: 120px;
+}
+.tui-colorpicker-slider-right {
+    float: right;
+    width: 32px;
+    height: 120px;
+}
+.tui-colorpicker-svg {
+    display: block;
+}
+.tui-colorpicker-slider-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 1px;
+    height: 1px;
+    overflow: visible;
+    opacity: 0.9;
+}
+.tui-colorpicker-svg-slider {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+.tui-colorpicker-vml-slider {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+.tui-colorpicker-vml-slider-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 122px;
+    height: 122px;
+    margin: -1px 0 0 -1px;
+}
+.tui-colorpicker-svg-huebar {
+    float: right;
+    width: 18px;
+    height: 120px;
+    overflow: visible;
+    border: 1px solid #ccc;
+}
+.tui-colorpicker-vml-huebar {
+    position: relative;
+    width: 32px;
+}
+.tui-colorpicker-vml-huebar-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 18px;
+    height: 121px;
+}

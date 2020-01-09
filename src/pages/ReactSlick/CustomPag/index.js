@@ -8,28 +8,32 @@ function SlickArrow(props) {
 
     return <Icon type={type} className={className} onClick={onClick} />;
 }
+import icon1 from '@/assets/icon-01.png';
+import icon2 from '@/assets/icon-02.png';
+import icon3 from '@/assets/icon-03.png';
+import icon4 from '@/assets/icon-04.png';
 
 // 测试数据
 const data = [
     {
         id: '1',
-        src: 'https://assets.che300.com/feimg/incoming/icon-05.png',
+        src: '',
     },
     {
         id: '2',
-        src: 'https://assets.che300.com/feimg/incoming/icon-02.png',
+        src: icon1,
     },
     {
         id: '3',
-        src: 'https://assets.che300.com/feimg/incoming/icon-03.png',
+        src: icon2,
     },
     {
         id: '4',
-        src: 'https://assets.che300.com/feimg/incoming/icon-04.png',
+        src: icon3,
     },
     {
         id: '5',
-        src: 'https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg',
+        src: icon4,
     },
 ];
 

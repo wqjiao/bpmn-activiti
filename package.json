@@ -56,6 +56,7 @@
         "react-document-title": "^2.0.3",
         "react-dom": "^16.7.0",
         "react-fittext": "^1.0.0",
+        "react-lazyload": "^2.6.5",
         "react-media": "^1.9.2",
         "react-slick": "^0.25.2",
         "sftp-after-webpack": "^1.0.5",

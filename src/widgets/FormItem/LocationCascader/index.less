@@ -1,0 +1,168 @@
+.locationCascader {
+    position: relative;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum';
+    background-color: #fff;
+    border-radius: 4px;
+    outline: 0;
+    cursor: pointer;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+
+    .locationPicker {
+        display: inline-block;
+        width: 100%;
+        &:hover .closeCircle {
+            opacity: 1;
+        }
+    }
+
+    .cascaderLabel {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        margin-top: -10px;
+        padding: 0 12px;
+        overflow: hidden;
+        line-height: 20px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .cascaderInput {
+        position: relative;
+        width: 100%;
+        background-color: transparent !important;
+        cursor: pointer;
+    }
+    .closeCircle {
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        z-index: 2;
+        width: 12px;
+        height: 12px;
+        margin-top: -6px;
+        color: rgba(0, 0, 0, 0.25);
+        font-size: 12px;
+        line-height: 12px;
+        background: #fff;
+        cursor: pointer;
+        opacity: 0;
+        -webkit-transition: color 0.3s ease, opacity 0.15s ease;
+        transition: color 0.3s ease, opacity 0.15s ease;
+    }
+    .cascaderIcon {
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        z-index: 1;
+        width: 12px;
+        height: 12px;
+        margin-top: -6px;
+        color: rgba(0, 0, 0, 0.25);
+        font-size: 12px;
+        line-height: 12px;
+        -webkit-transition: -webkit-transform 0.2s;
+        transition: -webkit-transform 0.2s;
+        transition: transform 0.2s;
+        transition: transform 0.2s, -webkit-transform 0.2s;
+        &.cascaderIconExpand {
+            -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.cascaderMenus {
+    position: absolute;
+    z-index: 1050;
+    overflow: hidden;
+    font-size: 14px;
+    white-space: nowrap;
+    background: #fff;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    -moz-animation: showMenu 0.3s;
+    -webkit-animation: showMenu 0.3s;
+    -o-animation: showMenu 0.3s;
+    animation: showMenu 0.3s;
+    &.menusHidden {
+        display: none;
+    }
+    &slideUpLeave {
+        -webkit-animation-duration: 0.2s;
+        animation-duration: 0.2s;
+        -webkit-animation-play-state: paused;
+        animation-play-state: paused;
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+    .cascaderMenu {
+        display: inline-block;
+        min-width: 111px;
+        height: 180px;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+        vertical-align: top;
+        list-style: none;
+        border-right: 1px solid #e8e8e8;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    .cascaderMenuItem {
+        padding: 5px 12px;
+        line-height: 22px;
+        white-space: nowrap;
+        cursor: pointer;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        &:hover {
+            background: #e6f7ff;
+        }
+        .menuItemIcon {
+            position: absolute;
+            right: 12px;
+            display: inline-block;
+            color: rgba(0, 0, 0, 0.45);
+            font-size: 12px;
+            font-size: 10px \9;
+            -webkit-transform: scale(0.83333333) rotate(0deg);
+            -ms-transform: scale(0.83333333) rotate(0deg);
+            transform: scale(0.83333333) rotate(0deg);
+        }
+    }
+    .cascaderMenuItemExpand {
+        position: relative;
+        padding-right: 24px;
+    }
+    .cascaderMenuItemActive:not(.cascaderMenuItemDisabled),
+    .cascaderMenuItemActive:not(.cascaderMenuItemDisabled):hover {
+        font-weight: 600;
+        background: #f5f5f5;
+    }
+}
+@keyframes showMenu {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 180px;
+    }
+}

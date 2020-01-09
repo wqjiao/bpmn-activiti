@@ -1,0 +1,87 @@
+.swiperMask {
+    .mainContainer {
+        display: flex;
+        height: 80vh;
+        padding: 40px 20px 20px 20px;
+    }
+
+    .thumbsContainer {
+        position: relative;
+        padding: 50px 20px 0 20px;
+        :global {
+            .swiper-slide img {
+                width: auto;
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
+            }
+        }
+    }
+
+    .typeSelect {
+        position: absolute;
+        top: 0;
+        left: 20px;
+        width: 276px;
+    }
+
+    .toolButtons {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        button + button {
+            margin-left: 8px;
+        }
+    }
+
+    top: 0;
+    padding-bottom: 0;
+    :global {
+        .ant-modal-content {
+            height: 100%;
+            padding: 0;
+            background-color: #000;
+            border-radius: 0;
+            .ant-modal-close-x {
+                color: #fff;
+                font-size: 30px;
+            }
+            .ant-modal-body {
+                padding: 0;
+            }
+        }
+
+        .swiper-container {
+            flex: 1 1;
+            // width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
+
+        .swiper-thumbs {
+            box-sizing: border-box;
+            height: calc(20vh - 52px);
+            .swiper-slide {
+                width: 25%;
+                height: 100%;
+                opacity: 0.4;
+            }
+
+            .swiper-slide-thumb-active {
+                opacity: 1;
+            }
+        }
+    }
+}

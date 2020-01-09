@@ -1,7 +1,7 @@
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
 export default {
     // 支持值为 Object 和 Array
-    'POST //api/user/getUserInfo*': (req, res) => {
+    'POST /api/user/getUserInfo*': (req, res) => {
         // if (req.headers.authorization) {
         res.send({
             code: 200,
@@ -54,7 +54,7 @@ export default {
     ],
     'POST /api/user/login': (req, res) => {
         const {password, account, type} = req.body;
-        if (password === '123456' && account === 'admin') {
+        if (password === '123456' && account === '18220190425') {
             res.send({
                 code: 200,
                 type,

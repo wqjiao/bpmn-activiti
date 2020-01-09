@@ -1,0 +1,32 @@
+.topContant {
+    min-height: 76px;
+}
+
+.tabsBox {
+    :global {
+        .ant-tabs-left-bar {
+            width: 120px;
+            margin-right: 10px;
+            border-right: 0;
+        }
+        .ant-tabs-nav {
+            background: #fff;
+        }
+        .ant-tabs-left-content {
+            min-height: 200px;
+            margin-left: 130px;
+            border-left: 0;
+        }
+    }
+}
+
+// 固定定位
+.fixed {
+    :global {
+        .ant-tabs-left-bar {
+            position: fixed;
+            top: 80px;
+            height: auto;
+        }
+    }
+}

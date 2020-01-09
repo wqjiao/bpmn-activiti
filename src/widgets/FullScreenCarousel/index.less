@@ -1,0 +1,158 @@
+.fullModal {
+    :global {
+        .ant-modal {
+            top: 0;
+            padding-bottom: 0;
+            .ant-modal-content {
+                height: 100%;
+                padding: 0;
+                background-color: #000;
+                border-radius: 0;
+                .ant-modal-close-x {
+                    color: #fff;
+                    font-size: 30px;
+                }
+                .ant-modal-body {
+                    padding: 0;
+                }
+            }
+        }
+        .slick-arrow {
+            color: #fff !important;
+            font-size: 30px;
+        }
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 80vh;
+        padding: 0 50px;
+        .toolbtns {
+            position: absolute;
+            right: 100px;
+            bottom: 40px;
+            z-index: 100;
+            .icon {
+                margin-left: 16px;
+                // color: #fff;
+                // font-size: 24px;
+                // cursor: pointer;
+            }
+        }
+        .arrow {
+            color: #fff;
+            font-size: 30px;
+        }
+        .arrowbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 96%;
+            margin: 0 auto;
+            :global {
+                // .slick-arrow {
+                //     color: #fff;
+                //     font-size: 30px;
+                // }
+                .slick-dots {
+                    position: fixed;
+                    right: 0;
+                    // bottom: 50px;
+                    left: 0;
+                    display: flex;
+                    align-items: center;
+                    height: auto;
+                    margin: 0;
+                    // overflow-x: auto;
+                    // overflow-y: hidden;
+                    text-align: left;
+                }
+            }
+            .imgbox {
+                height: 80vh;
+                .center {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 80vh;
+                }
+                .img {
+                    display: inline-block;
+                    max-width: 100%;
+                    max-height: 100%;
+                    vertical-align: middle;
+                }
+            }
+            .dotimgbox {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 100px;
+                height: 100px;
+                margin-right: 10px;
+                overflow: hidden;
+                border: 2px solid transparent;
+                cursor: pointer;
+                &.active {
+                    border-color: #f00;
+                }
+                .dotimg {
+                    max-width: 100%;
+                }
+            }
+            .dotArrorw {
+                width: 100px;
+                color: #fff;
+                font-size: 20px;
+            }
+            .dotUl {
+                min-width: 1200px;
+                overflow-x: auto;
+                white-space: nowrap;
+                &::-webkit-scrollbar {
+                    width: 8px;
+                    height: 8px;
+                }
+            }
+        }
+    }
+
+    .bottomCarousel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 96%;
+        height: 20vh;
+        margin: 0 auto;
+        .arrow {
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .imgbox {
+            border: 1px solid transparent;
+            cursor: pointer;
+            &.active {
+                border-color: #f00;
+            }
+            .center {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+                .img {
+                    max-width: 100%;
+                    max-height: 20vh;
+                }
+            }
+        }
+    }
+}
