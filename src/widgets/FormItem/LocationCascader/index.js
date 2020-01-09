@@ -1,8 +1,8 @@
 /*
  * @Author: wqjiao
  * @Date: 2019-04-08 09:18:40
- * @Last Modified by: wqjiao
- * @Last Modified time: 2020-01-09 10:48:20
+ * @Last Modified by: qyy
+ * @Last Modified time: 2020-01-09 15:49:53
  * @Description: LocationCascader 地区级联
  * @Use 使用说明，以下必传项
     <LocationCascader
@@ -54,6 +54,8 @@ class LocationCascader extends PureComponent {
         menuVisible: false, // 下拉框是否显示
         style: {},
         isFirst: true, // 初次进入页面
+        isCityLoading: false, // 获取市中...
+        isRegionLoading: false, // 获取区中...
     };
 
     static getDerivedStateFromProps(nextProps) {
@@ -153,6 +155,7 @@ class LocationCascader extends PureComponent {
             <ul className={styles.cascaderMenu}>
                 {data.map(item => {
                     let hasLeafKey = item.hasOwnProperty('isLeaf'); // 存在向有的箭头
+
                     return (
                         <li
                             className={classNames(styles.cascaderMenuItem, {
@@ -163,7 +166,7 @@ class LocationCascader extends PureComponent {
                             key={`${item.label}-${item.value}`}
                         >
                             {item.label}
-                            {hasLeafKey ? this.renderRightIcon() : null}
+                            {hasLeafKey ? this.renderRightIcon(type, item.active) : null}
                         </li>
                     );
                 })}
@@ -172,10 +175,17 @@ class LocationCascader extends PureComponent {
     };
 
     // 生成子菜单中的右侧 icon
-    renderRightIcon = () => {
+    renderRightIcon = (type, active) => {
+        let isLoading = false;
+        if (active) {
+            const {isCityLoading, isRegionLoading} = this.state;
+            isLoading =
+                (type === 'province' && isCityLoading) || (type === 'city' && isRegionLoading);
+        }
+
         return (
             <span className={styles.menuItemIcon}>
-                <Icon type="right" />
+                {isLoading ? <Icon type="loading" /> : <Icon type="right" />}
             </span>
         );
     };
@@ -266,20 +276,32 @@ class LocationCascader extends PureComponent {
 
         // 省 -- 获取对应市,并踢出同一个字段
         if (type === 'province') {
-            this.getCitysData(item.value, data => {
-                this.setState(
-                    {
-                        provinceName: item.label,
-                        provinceId: item.value,
-                        regions: [],
-                        citys: isChooseCity ? data : addIsLeaf(data),
-                        provinces: activeSignData(provinces, item.value),
-                    },
-                    () => {
-                        this.changeSelectOffset(target);
-                    }
-                );
-            });
+            this.setState(
+                {
+                    provinces: activeSignData(provinces, item.value),
+                    citys: [],
+                    regions: [],
+                    isCityLoading: true,
+                },
+                () => {
+                    this.getCitysData(item.value, data => {
+                        this.setState(
+                            {
+                                provinceName: item.label,
+                                provinceId: item.value,
+                                regions: [],
+                                citys: isChooseCity ? data : addIsLeaf(data),
+                                provinces: activeSignData(provinces, item.value),
+                                isCityLoading: false,
+                            },
+                            () => {
+                                this.changeSelectOffset(target);
+                            }
+                        );
+                    });
+                }
+            );
+            this.triggerChange([item.value], item.label);
         }
         // 市 -- 获取对应区
         if (type === 'city') {
@@ -289,24 +311,32 @@ class LocationCascader extends PureComponent {
                 this.setState({
                     labelText,
                     menuVisible: false,
-                    citys: activeSignData(citys, item.value),
                 });
-                this.triggerChange([provinceId, item.value], labelText);
             } else {
-                this.getRegionsData(item.value, data => {
-                    this.setState(
-                        {
-                            cityName: item.label,
-                            cityId: item.value,
-                            regions: [{value: '123', label: '全部'}, ...data],
-                            citys: activeSignData(citys, item.value),
-                        },
-                        () => {
-                            this.changeSelectOffset(target);
-                        }
-                    );
-                });
+                this.setState(
+                    {
+                        citys: activeSignData(citys, item.value),
+                        regions: [],
+                        isRegionLoading: true,
+                    },
+                    () => {
+                        this.getRegionsData(item.value, data => {
+                            this.setState(
+                                {
+                                    cityName: item.label,
+                                    cityId: item.value,
+                                    regions: data,
+                                    isRegionLoading: false,
+                                },
+                                () => {
+                                    this.changeSelectOffset(target);
+                                }
+                            );
+                        });
+                    }
+                );
             }
+            this.triggerChange([provinceId, item.value], `${provinceName}/${item.label}`);
         }
         // 区 -- 赋值
         if (type === 'region') {
