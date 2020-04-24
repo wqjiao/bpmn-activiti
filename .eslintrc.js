@@ -17,7 +17,7 @@ module.exports = {
     globals: {
         process: false, //一些全局变量，按照自己项目设置
         __dirname: false,
-        c3ImgBrowser: 'writable',
+        imgBrowser: 'writable',
     },
     parserOptions: {
         ecmaFeatures: {

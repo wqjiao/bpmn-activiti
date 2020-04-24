@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './index.less';
-import '@/utils/c3ImgBrowser';
+import '@/utils/imgBrowser';
 
 // 走马灯 prev/next 自定义按钮
 function SlickArrow(props) {
@@ -56,9 +56,9 @@ export default class AsNavFor extends Component {
             nav2: this.slider2,
         });
 
-        // 初始化 c3ImgBrowser 方法
+        // 初始化 imgBrowser 方法
         let currentImg = this.getNode();
-        c3ImgBrowser(currentImg);
+        imgBrowser(currentImg);
     }
 
     // 获取图片节点
@@ -70,6 +70,24 @@ export default class AsNavFor extends Component {
         return node;
     };
 
+    // 重置
+    handleReaet = () => {
+        const node = this.getNode();
+        node && node.dispatchEvent(new CustomEvent('imgBrowser.reset'));
+    };
+
+    // 缩放
+    handleScale = scale => {
+        const node = this.getNode();
+        node && node.dispatchEvent(new CustomEvent('imgBrowser.scale', {detail: {scale: scale}}));
+    };
+
+    // 旋转
+    handleRotate = () => {
+        const node = this.getNode();
+        node && node.dispatchEvent(new CustomEvent('imgBrowser.rotate'));
+    };
+
     componentWillUnmount() {
         let images = document.querySelectorAll(
             '.bpmn_activiti-pages-react-slick-as-nav-for-index-slicTrackImg img'
@@ -77,34 +95,10 @@ export default class AsNavFor extends Component {
         // NodeList
         if (images.length > 0) {
             [].forEach.call(images, function(item) {
-                item && item.dispatchEvent(new CustomEvent('c3ImgBrowser.destroy'));
+                item && item.dispatchEvent(new CustomEvent('imgBrowser.destroy'));
             });
         }
     }
-
-    // 重置
-    handleReaet = () => {
-        const node = this.getNode();
-        node && node.dispatchEvent(new CustomEvent('c3ImgBrowser.reset'));
-    };
-
-    // 放大
-    handleZoomIn = () => {
-        const node = this.getNode();
-        node && node.dispatchEvent(new CustomEvent('c3ImgBrowser.zoomIn'));
-    };
-
-    // 缩小
-    handleZoomOut = () => {
-        const node = this.getNode();
-        node && node.dispatchEvent(new CustomEvent('c3ImgBrowser.zoomOut'));
-    };
-
-    // 旋转
-    handleRotate = () => {
-        const node = this.getNode();
-        node && node.dispatchEvent(new CustomEvent('c3ImgBrowser.rotate'));
-    };
 
     render() {
         // 公共 settings
@@ -125,7 +119,7 @@ export default class AsNavFor extends Component {
                     currentIndex: index,
                 });
 
-                c3ImgBrowser(currentImg);
+                imgBrowser(currentImg);
             },
             beforeChange: index => {
                 let images = document.querySelectorAll(
@@ -133,7 +127,7 @@ export default class AsNavFor extends Component {
                 );
                 let currentImg = images[index];
 
-                currentImg && currentImg.dispatchEvent(new CustomEvent('c3ImgBrowser.destroy'));
+                currentImg && currentImg.dispatchEvent(new CustomEvent('imgBrowser.destroy'));
             },
         };
 
@@ -163,8 +157,8 @@ export default class AsNavFor extends Component {
                 {/* 操作按钮 */}
                 <div className={styles.slickIcons}>
                     <Icon type="redo" title="重置" onClick={this.handleReaet} />
-                    <Icon type="zoom-in" title="放大" onClick={this.handleZoomIn} />
-                    <Icon type="zoom-out" title="缩小" onClick={this.handleZoomOut} />
+                    <Icon type="zoom-in" title="放大" onClick={this.handleScale.bind(this, 1)} />
+                    <Icon type="zoom-out" title="缩小" onClick={this.handleScale.bind(this, -1)} />
                     <Icon type="undo" title="旋转" onClick={this.handleRotate} />
                 </div>
 

@@ -1,26 +1,26 @@
 ﻿/*!
-	c3ImgBrowser 1.0.0
+	imgBrowser 1.2.0
 	license: MIT 
 */
 import transform from './transform.js';
 
-window.c3ImgBrowser = (function() {
+window.imgBrowser = (function() {
     let defaults = {
         zoom: 0.1,
+        fobiddenWheel: false, // 禁止滚轮缩放
     };
 
     let main = function(img, options) {
-        let trueImg;
-
+        let trueImg; // 真实的img对象
         if (!img || !img.nodeName) {
             return;
         } else if (img.nodeName !== 'IMG') {
-            // trueImg = $(img).find('img')[0];
-            trueImg = img.children[0];
+            trueImg = $(img).find('img')[0];
         } else {
             trueImg = img;
         }
 
+        // 对图片进行初始化，会加上scaleX，translateX等属性，都是默认值，比如scaleX是1，translateX是0。
         transform(trueImg);
 
         let settings = {};
@@ -42,6 +42,7 @@ window.c3ImgBrowser = (function() {
             trueImg.translateY = bgPosY;
         }
 
+        // 重置
         function reset() {
             bgWidth = width;
             bgHeight = height;
@@ -50,9 +51,13 @@ window.c3ImgBrowser = (function() {
             updateBgStyle();
         }
 
-        // 1.鼠标/点击按钮:放大/缩小;2.shift+鼠标:旋转
-        function onwheel(e, type) {
+        // 滚轮控制图片缩放
+        function onwheel(e) {
             let deltaY = 0;
+
+            if (settings.fobiddenWheel) {
+                return;
+            }
 
             // 初始化图片方向
             e.preventDefault();
@@ -75,16 +80,6 @@ window.c3ImgBrowser = (function() {
                 } else {
                     rotateZ -= 10;
                 }
-                updateBgStyle();
-                return;
-            } else if (type === 'zoomIn') {
-                bgWidth += initWidth * 0.1;
-                bgHeight += initHeight * 0.1;
-                updateBgStyle();
-                return;
-            } else if (type === 'zoomOut') {
-                bgWidth -= initWidth * 0.1;
-                bgHeight -= initHeight * 0.1;
                 updateBgStyle();
                 return;
             } else {
@@ -133,18 +128,16 @@ window.c3ImgBrowser = (function() {
 
             updateBgStyle();
         }
-
-        // 放大
-        function onzoomIn(e) {
-            onwheel(e, 'zoomIn');
+        // 图片缩放
+        function onscale(e) {
+            if (e.detail.scale > 0) {
+                bgWidth *= 1.2;
+            } else {
+                bgWidth /= 1.2;
+            }
+            updateBgStyle();
         }
-
-        // 缩小
-        function onzoomOut(e) {
-            onwheel(e, 'zoomOut');
-        }
-
-        // 旋转
+        // 图片旋转
         function onrotate() {
             // 如果是90度的证书，要加90度
             if (!(rotateZ % 90)) {
@@ -155,8 +148,7 @@ window.c3ImgBrowser = (function() {
             }
             updateBgStyle();
         }
-
-        // 点击拖拽
+        // 拖拽控制图片移动
         function drag(e) {
             e.preventDefault();
             bgPosX += e.pageX - previousEvent.pageX;
@@ -164,8 +156,7 @@ window.c3ImgBrowser = (function() {
             previousEvent = e;
             updateBgStyle();
         }
-
-        // 取消拖拽
+        // 删除拖拽事件
         function removeDrag() {
             document.removeEventListener('mouseup', removeDrag);
             document.removeEventListener('mousemove', drag);
@@ -180,47 +171,49 @@ window.c3ImgBrowser = (function() {
             document.addEventListener('mouseup', removeDrag);
         }
 
+        // 图片加载完成之后
         function load() {
             if (trueImg.src === cachedDataUrl) return;
 
+            // 获取当前图片的计算样式
             let computedStyle = window.getComputedStyle(img, null);
 
+            // 展示的宽高
             width = parseInt(computedStyle.width, 10);
             height = parseInt(computedStyle.height, 10);
 
+            // 默认的缩放，计算默认的图片宽度
             bgWidth = width * trueImg.scaleX;
             bgHeight = height * trueImg.scaleY;
-
+            // 默认的移动
             bgPosX = trueImg.translateX;
             bgPosY = trueImg.translateY;
-
+            // 默认的旋转
             rotateZ = trueImg.rotateZ;
 
-            img.addEventListener('c3ImgBrowser.reset', reset);
-            img.addEventListener('c3ImgBrowser.rotate', onrotate);
-            img.addEventListener('c3ImgBrowser.zoomIn', onzoomIn);
-            img.addEventListener('c3ImgBrowser.zoomOut', onzoomOut);
+            img.addEventListener('imgBrowser.reset', reset);
+            img.addEventListener('imgBrowser.rotate', onrotate);
+            img.addEventListener('imgBrowser.scale', onscale);
             img.addEventListener('wheel', onwheel);
             img.addEventListener('mousedown', draggable);
         }
 
         let destroy = function(originalProperties) {
-            img.removeEventListener('c3ImgBrowser.destroy', destroy);
-            img.removeEventListener('c3ImgBrowser.reset', reset);
-            img.removeEventListener('c3ImgBrowser.rotate', onrotate);
-            img.removeEventListener('c3ImgBrowser.zoomIn', onzoomIn);
-            img.removeEventListener('c3ImgBrowser.zoomOut', onzoomOut);
+            img.removeEventListener('imgBrowser.destroy', destroy);
+            img.removeEventListener('imgBrowser.reset', reset);
+            img.removeEventListener('imgBrowser.rotate', onrotate);
+            img.removeEventListener('imgBrowser.scale', onscale);
             img.removeEventListener('load', load);
-            img.removeEventListener('wheel', onwheel);
             img.removeEventListener('mouseup', removeDrag);
             img.removeEventListener('mousemove', drag);
             img.removeEventListener('mousedown', draggable);
+            img.removeEventListener('wheel', onwheel);
             img.src = originalProperties.src;
         }.bind(null, {
             src: img.src,
         });
 
-        img.addEventListener('c3ImgBrowser.destroy', destroy);
+        img.addEventListener('imgBrowser.destroy', destroy);
 
         options = options || {};
 
@@ -241,7 +234,9 @@ window.c3ImgBrowser = (function() {
     } else {
         return function(elements, options) {
             if (elements && elements.length) {
-                Array.prototype.forEach.call(elements, main, options);
+                Array.prototype.forEach.call(elements, function(item) {
+                    main(item, options);
+                });
             } else if (elements && elements.nodeName) {
                 main(elements, options);
             }

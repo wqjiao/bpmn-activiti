@@ -107,7 +107,7 @@ class SwiperWrapper extends React.Component {
                     let $container = document.querySelectorAll('.swiper-main .swiper-slide img')[
                         this.activeIndex
                     ];
-                    $container && $container.dispatchEvent(new CustomEvent('c3ImgBrowser.reset'));
+                    $container && $container.dispatchEvent(new CustomEvent('imgBrowser.reset'));
                 },
             },
         });
@@ -119,8 +119,8 @@ class SwiperWrapper extends React.Component {
         }
 
         // 重新初始化旋转缩小
-        window.c3ImgBrowser &&
-            window.c3ImgBrowser(document.querySelectorAll('.swiper-main .swiper-slide img'), {
+        window.imgBrowser &&
+            window.imgBrowser(document.querySelectorAll('.swiper-main .swiper-slide img'), {
                 fobiddenWheel: true,
             });
     }
@@ -211,25 +211,25 @@ class SwiperWrapper extends React.Component {
     // 旋转
     handleRotate = () => {
         let $currentImg = document.querySelector('.swiper-main .swiper-slide-active img');
-        $currentImg.dispatchEvent(new CustomEvent('c3ImgBrowser.rotate'));
+        $currentImg.dispatchEvent(new CustomEvent('imgBrowser.rotate'));
     };
     // 重置
     handleReset = () => {
         let $currentImg = document.querySelector('.swiper-main .swiper-slide-active img');
-        $currentImg.dispatchEvent(new CustomEvent('c3ImgBrowser.reset'));
+        $currentImg.dispatchEvent(new CustomEvent('imgBrowser.reset'));
     };
     //  TODO 销毁全部
     handleDestroyAll = () => {
         let $imgs = document.querySelectorAll('.swiper-main img');
         let imgs = [].slice.call($imgs);
         imgs.forEach(function(item) {
-            item.dispatchEvent(new CustomEvent('c3ImgBrowser.destroy'));
+            item.dispatchEvent(new CustomEvent('imgBrowser.destroy'));
         });
     };
     // 旋转
     handleScale = scale => {
         let $currentImg = document.querySelector('.swiper-main .swiper-slide-active img');
-        $currentImg.dispatchEvent(new CustomEvent('c3ImgBrowser.scale', {detail: {scale: scale}}));
+        $currentImg.dispatchEvent(new CustomEvent('imgBrowser.scale', {detail: {scale: scale}}));
     };
 
     // 对话框控制
