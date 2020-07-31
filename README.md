@@ -48,6 +48,6 @@ npm run dev
 # 业务
 
 1. pages/Bpmn 流程设计相关页面
-![gif](./assets/bpmn.gif)
+![gif](./src/assets/bpmn.gif)
 2. pages/ReactSlick 走马灯相关页面
-![gif](./assets/reactSlick.gif)
+![gif](./src/assets/reactSlick.gif)
