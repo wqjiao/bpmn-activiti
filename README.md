@@ -34,7 +34,7 @@
 ### 1、pages/Bpmn
 
 流程设计相关页面，用于设计业务的流程走向，通过 `xml` 传送给接口，主要实现流程设计、区域缩放、预览、撤销/回退、下载 `xml`、`svg` 等功能：
-![gif](./src/assets/bpmn.gif)
+![gif](./public/bpmn.gif)
 
 * 关于 `BPMN` 的总结详见 [BPMN使用小结](https://juejin.im/post/6844903940954259470)
 * 本项目中引入的插件详见: [bpmn-js](https://github.com/bpmn-io/bpmn-js)、[bpmn-js-examples](https://github.com/bpmn-io/bpmn-js-examples)
@@ -42,7 +42,7 @@
 ### 2、pages/ReactSlick
 
 走马灯相关页面，主要实现图片的切换、旋转、缩放等功能：
-![gif](./src/assets/reactSlick.gif)
+![gif](./public/reactSlick.gif)
 
 ## 权限控制
 

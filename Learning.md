@@ -88,3 +88,9 @@ Router，环境区分，按需加载，Mock，部署
 
 ## 环境变量
 测试和线上打包，如果指定域名需要使用config.js中的define功能处理。目前增加了apiUrl来控制接口请求的地址。
+
+## 升级问题
+
+* 升级后，由于 `umi-ui` 的问题，在 `yarn install` 时会出现以下错误，提示缺少 `Python` 环境，但是不影响实际运行跟使用：
+
+![img](./public/error.png)
