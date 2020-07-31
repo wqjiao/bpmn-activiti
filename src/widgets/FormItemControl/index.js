@@ -2,7 +2,7 @@
  * @Author: wqjiao
  * @Date: 2019-08-02 18:42:08
  * @Last Modified by: wqjiao
- * @Last Modified time: 2020-01-09 10:47:09
+ * @Last Modified time: 2020-07-31 15:13:03
  * @Description: 动态配置表单：输入方式、必选填、长度
  */
 import React, {PureComponent} from 'react';
@@ -204,7 +204,7 @@ class FormItemControl extends PureComponent {
                 break;
             case 'TextArea':
                 itemChild = getFieldDecorator(name, options)(
-                    <TextArea disabled={!canEdit} placeholder="请输入" autosize />
+                    <TextArea disabled={!canEdit} placeholder="请输入" autoSize />
                 );
                 break;
             case 'Input': {

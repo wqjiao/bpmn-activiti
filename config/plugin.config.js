@@ -3,7 +3,9 @@
 import MergeLessPlugin from 'antd-pro-merge-less';
 import AntDesignThemePlugin from 'antd-theme-webpack-plugin';
 import path from 'path';
-const SftpAfterWebpack = require('sftp-after-webpack');
+// const SftpAfterWebpack = require('sftp-after-webpack');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+import {hash} from './constants';
 
 function getModulePackageName(module) {
     if (!module.context) return null;
@@ -51,31 +53,39 @@ export default config => {
         ]);
     }
 
-    if (process.env.UMI_ENV === 'beta') {
-        config.plugin('sftp-webpack').use(SftpAfterWebpack, [
-            {
-                host: '',
-                user: '',
-                password: '',
-                port: '',
-                localPath: '',
-                remotePath: '',
-            },
-        ]);
-    }
+    // 打包前删除本地 dist 包
+    config.plugin('clean-webpack-plugin').use(CleanWebpackPlugin, [
+        {
+            verbose: true,
+            cleanOnceBeforeBuildPatterns: [path.join(process.cwd(), 'dist')],
+        },
+    ]);
 
-    if (process.env.UMI_ENV === 'dev') {
-        config.plugin('sftp-webpack').use(SftpAfterWebpack, [
-            {
-                host: '',
-                user: '',
-                password: '',
-                port: '',
-                localPath: '',
-                remotePath: '',
-            },
-        ]);
-    }
+    // if (process.env.UMI_ENV === 'beta') {
+    //     config.plugin('sftp-webpack').use(SftpAfterWebpack, [
+    //         {
+    //             host: '',
+    //             user: '',
+    //             password: '',
+    //             port: '',
+    //             localPath: `dist/${hash}`,
+    //             remotePath: '',
+    //         },
+    //     ]);
+    // }
+
+    // if (process.env.UMI_ENV === 'dev') {
+    //     config.plugin('sftp-webpack').use(SftpAfterWebpack, [
+    //         {
+    //             host: '',
+    //             user: '',
+    //             password: '',
+    //             port: '',
+    //             localPath: `dist/${hash}`,
+    //             remotePath: '',
+    //         },
+    //     ]);
+    // }
     // optimize chunks
     config.optimization
         .runtimeChunk(false) // share the same chunks across different modules
