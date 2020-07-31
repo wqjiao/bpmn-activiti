@@ -1,19 +1,19 @@
 import React, {Suspense} from 'react';
-import {Layout} from 'antd';
 import DocumentTitle from 'react-document-title';
-import {connect} from 'dva';
 import {ContainerQuery} from 'react-container-query';
+import {connect} from 'dva';
 import classNames from 'classnames';
 import Media from 'react-media';
+import {Layout, ConfigProvider} from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
+import PageLoading from '@/components/PageLoading';
+import SiderMenu from '@/components/SiderMenu';
 import Footer from './Footer';
 import Header from './Header';
 import Context from './MenuContext';
-import PageLoading from '@/components/PageLoading';
-import SiderMenu from '@/components/SiderMenu';
 import getPageTitle from '@/utils/getPageTitle';
-import styles from './BasicLayout.less';
-
 import {logoUrl} from '../defaultSettings';
+import styles from './BasicLayout.less';
 
 // lazy load SettingDrawer
 const SettingDrawer = React.lazy(() => import('@/components/SettingDrawer'));
@@ -124,12 +124,7 @@ class BasicLayout extends React.Component {
                         {...this.props}
                     />
                 )}
-                <Layout
-                    style={{
-                        ...this.getLayoutStyle(),
-                        minHeight: '100vh',
-                    }}
-                >
+                <Layout style={{...this.getLayoutStyle(), minHeight: '100vh'}}>
                     <Header
                         menuData={menuData}
                         handleMenuCollapse={this.handleMenuCollapse}
@@ -145,7 +140,7 @@ class BasicLayout extends React.Component {
             </Layout>
         );
         return (
-            <React.Fragment>
+            <ConfigProvider locale={zhCN}>
                 <DocumentTitle title={getPageTitle(pathname, breadcrumbNameMap)}>
                     <ContainerQuery query={query}>
                         {params => (
@@ -156,7 +151,7 @@ class BasicLayout extends React.Component {
                     </ContainerQuery>
                 </DocumentTitle>
                 <Suspense fallback={<PageLoading />}>{this.renderSettingDrawer()}</Suspense>
-            </React.Fragment>
+            </ConfigProvider>
         );
     }
 }
