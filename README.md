@@ -29,6 +29,18 @@
 |-- README.md                             # 简介
 ```
 
+## 功能
+
+### 1、pages/Bpmn
+
+流程设计相关页面，用于设计业务的流程走向，通过 `xml` 传送给接口，主要实现流程设计、区域缩放、预览、撤销/回退、下载 `xml`、`svg` 等功能：
+![gif](./src/assets/bpmn.gif)
+
+### 2、pages/ReactSlick
+
+走马灯相关页面，主要实现图片的切换、旋转、缩放等功能：
+![gif](./src/assets/reactSlick.gif)
+
 ## 权限控制
 
 `页面名称-按钮名称`
@@ -39,15 +51,11 @@ npm install
 ## 本地服务
 npm start // localhost:8000
 
-## beta环境
-npm run beta
-
-# dev环境
+## 联调环境
 npm run dev
 
-# 业务
+## 测试环境
+npm run beta
 
-1. pages/Bpmn 流程设计相关页面
-![gif](./src/assets/bpmn.gif)
-2. pages/ReactSlick 走马灯相关页面
-![gif](./src/assets/reactSlick.gif)
+## 正式环境
+npm run build
