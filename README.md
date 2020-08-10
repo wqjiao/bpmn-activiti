@@ -49,19 +49,19 @@
 `页面名称-按钮名称`
 
 ## 项目启动方法
-npm install
+yarn install
 
 ## 本地服务
-npm start // localhost:8000
+yarn start // localhost:8000
 
 ## 联调环境
-npm run dev
+yarn run dev
 
 ## 测试环境
-npm run beta
+yarn run beta
 
 ## 正式环境
-npm run build
+yarn run build
 
 ## 插件/框架
 
