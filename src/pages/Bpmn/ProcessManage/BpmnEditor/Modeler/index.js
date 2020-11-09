@@ -8,7 +8,7 @@ import CustomTranslate from './customTranslate';
 
 import CustomPalette from './customPalette';
 
-// import ColorPickerModule from './customColor';
+import ColorPickerModule from './customColor';
 
 export default function CustomModeler(options) {
     Modeler.call(this, options);
@@ -21,7 +21,7 @@ inherits(CustomModeler, Modeler);
 CustomModeler.prototype._modules = [].concat(CustomModeler.prototype._modules, [
     CustomTranslate,
     CustomPalette,
-    // ColorPickerModule,
+    ColorPickerModule,
 ]);
 
 /**
