@@ -59,7 +59,7 @@ class Bpmn extends Component {
         const {data} = this.props;
         return (
             <Fragment>
-                <div id="canvas" style={{height: '100%'}} />
+                <div id="canvas" style={{height: 'calc(100vh - 310px)'}} />
                 <div>{data.id}</div>
             </Fragment>
         );

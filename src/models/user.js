@@ -7,8 +7,7 @@ export default {
         list: [],
         currentUser: {
             // 给一个默认的logo
-            avatar:
-                'https://user-gold-cdn.xitu.io/2019/9/11/16d1bec29f3b3d38?imageView2/1/w/120/h/120/q/85/format/webp/interlace/1',
+            avatar: 'https://s3.ax1x.com/2020/11/18/DmrGGt.jpg',
         },
     },
 

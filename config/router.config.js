@@ -22,63 +22,57 @@ export default [
             // BPMN
             {
                 name: 'bpmn',
-                icon: 'icon-quanxianshezhi',
+                icon: 'icon-liuchengtu',
                 path: '/bpmn',
                 routes: [
                     {
-                        path: '/bpmn/processManage',
                         name: 'processManage', // 流程管理
-                        component: './Bpmn/ProcessManage/index',
+                        path: '/bpmn/processManage',                        
+                        component: './Bpmn/ProcessManage',
                     },
                     {
-                        path: '/bpmn/processManage/edit/:id',
                         name: 'processDesign', // 流程设计
-                        hideInMenu: true,
+                        path: '/bpmn/processManage/edit/:id',
                         component: './Bpmn/ProcessManage/ProcessDesign',
+                        hideInMenu: true,
                     },
                     {
-                        path: '/bpmn/processTrace',
                         name: 'processTrace', // 流程跟踪
-                        component: './Bpmn/ProcessTrace/index',
+                        path: '/bpmn/processTrace',
+                        component: './Bpmn/ProcessTrace',
+                    },
                     },
                 ],
             },
             // ReactSlick
             {
                 name: 'reactslick',
-                icon: 'icon-quanxianshezhi',
+                icon: 'icon-pingfenmoban',
                 path: '/reactslick',
                 routes: [
                     {
                         path: '/reactslick/carousel',
                         name: 'carousel', // antd 面板式
-                        component: './ReactSlick/AntdCarousel/index',
+                        component: './ReactSlick/AntdCarousel',
                     },
                     {
                         path: '/reactslick/asnavfor',
                         name: 'asnavfor', // 缩略图+组件
-                        component: './ReactSlick/AsNavFor/index',
+                        component: './ReactSlick/AsNavFor',
                     },
                     {
                         path: '/reactslick/custompag',
                         name: 'custompag', // 面板式
-                        component: './ReactSlick/CustomPag/index',
+                        component: './ReactSlick/CustomPag',
                     },
                 ],
             },
             // react-lazyload
             {
                 name: 'reactLazy',
-                icon: 'icon-quanxianshezhi',
+                icon: 'icon-ziduan',
                 path: '/reactLazy',
-                component: './ReactLazy/index',
-                // routes: [
-                //     {
-                //         path: '/reactLazy/',
-                //         name: 'reactLazy',
-                //         component: './ReactSlick/AntdCarousel/index',
-                //     },
-                // ],
+                component: './ReactLazy',
             },
             {
                 component: '404',
