@@ -5,7 +5,7 @@ export async function query() {
 }
 
 export async function queryCurrent() {
-    return request('//api/user/getUserInfo?needUser=true', {
+    return request('/api/user/getUserInfo?needUser=true', {
         method: 'POST',
     });
 }

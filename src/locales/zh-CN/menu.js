@@ -14,7 +14,12 @@ export default {
     'menu.bpmn.processManage': '流程管理',
     'menu.bpmn.processDesign': '流程设计',
     'menu.bpmn.processTrace': '流程跟踪',
+    'menu.bpmn.jeeplusBpmn': '吉普流程',
+
+    'menu.reactslick': '图片轮播',
     'menu.reactslick.carousel': '面板图',
     'menu.reactslick.asnavfor': '缩略图',
     'menu.reactslick.custompag': '自定义页码',
+
+    'menu.reactLazy': '图片懒加载',
 };

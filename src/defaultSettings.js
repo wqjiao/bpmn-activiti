@@ -11,11 +11,10 @@ module.exports = {
     },
     title: '某某管理系统',
     pwa: false,
-    iconfontUrl: '//at.alicdn.com/t/font_1108567_yo4d8rcntrn.js',
+    iconfontUrl: '//at.alicdn.com/t/font_2201633_pwm8uijsac.js',
     collapse: true,
     copyRight: '2019 某某公司',
-    logoUrl:
-        'https://user-gold-cdn.xitu.io/2019/9/11/16d1bec29f3b3d38?imageView2/1/w/120/h/120/q/85/format/webp/interlace/1',
+    logoUrl: 'https://s3.ax1x.com/2020/11/18/DmrGGt.jpg',
 };
 // {
 //   navTheme: 'dark', // theme for nav menu
