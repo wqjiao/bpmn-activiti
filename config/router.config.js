@@ -27,7 +27,7 @@ export default [
                 routes: [
                     {
                         name: 'processManage', // 流程管理
-                        path: '/bpmn/processManage',                        
+                        path: '/bpmn/processManage',
                         component: './Bpmn/ProcessManage',
                     },
                     {
@@ -40,7 +40,6 @@ export default [
                         name: 'processTrace', // 流程跟踪
                         path: '/bpmn/processTrace',
                         component: './Bpmn/ProcessTrace',
-                    },
                     },
                 ],
             },
