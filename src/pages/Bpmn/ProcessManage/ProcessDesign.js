@@ -2,7 +2,7 @@
  * @Author: wqjiao
  * @Date: 2019-08-23 11:11:27
  * @Last Modified by: wqjiao
- * @Last Modified time: 2019-10-11 14:49:52
+ * @Last Modified time: 2020-12-02 09:23:31
  * @Description: 基础设置 -> 流程管理 -> 流程设计
  */
 import React, {Component} from 'react';
@@ -72,11 +72,11 @@ class ProcessDesign extends Component {
                             },
                         });
                         this.renderDiagram(xml || diagramXML);
-                        // 删除 bpmn logo
-                        const bjsIoLogo = document.querySelector('.bjs-powered-by');
-                        while (bjsIoLogo.firstChild) {
-                            bjsIoLogo.removeChild(bjsIoLogo.firstChild);
-                        }
+                        // // 删除 bpmn logo
+                        // const bjsIoLogo = document.querySelector('.bjs-powered-by');
+                        // while (bjsIoLogo.firstChild) {
+                        //     bjsIoLogo.removeChild(bjsIoLogo.firstChild);
+                        // }
                     },
                 });
             },

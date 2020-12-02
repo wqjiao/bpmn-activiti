@@ -47,11 +47,11 @@ class Bpmn extends Component {
             // endEventNode.addEventListener('click', function(e) {
             //     alert('clicked the end event!');
             // });
-            // 删除 bpmn logo
-            const bjsIoLogo = document.querySelector('.bjs-powered-by');
-            while (bjsIoLogo.firstChild) {
-                bjsIoLogo.removeChild(bjsIoLogo.firstChild);
-            }
+            // // 删除 bpmn logo
+            // const bjsIoLogo = document.querySelector('.bjs-powered-by');
+            // while (bjsIoLogo.firstChild) {
+            //     bjsIoLogo.removeChild(bjsIoLogo.firstChild);
+            // }
         });
     }
 
