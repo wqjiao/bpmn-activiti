@@ -65,7 +65,7 @@ export default {
         APP_TYPE: APP_TYPE || '',
         // 'process.env.apiUrl': 'http://192.168.1.154:5077', // 联调环境
         // 'process.env.apiUrl': 'http://192.168.0.24:5014',
-        'process.env.apiUrl': 'http://localhost:8000',
+        'process.env.apiUrl': 'http://localhost:8001',
     },
     treeShaking: true,
     history: 'hash', // 默认是 browser

@@ -22,4 +22,6 @@ export default {
     'menu.reactslick.custompag': '自定义页码',
 
     'menu.reactLazy': '图片懒加载',
+
+    'menu.monitor': '图表监控',
 };

@@ -39,6 +39,10 @@ export default {
                     name: 'ReactLazy',
                     path: '/reactLazy',
                 },
+                {
+                    name: 'monitor',
+                    path: '/monitor',
+                },
             ],
         });
     },

@@ -73,6 +73,13 @@ export default [
                 path: '/reactLazy',
                 component: './ReactLazy',
             },
+            // monitor
+            {
+                name: 'monitor',
+                icon: 'icon-ziduan',
+                path: '/monitor',
+                component: './Monitor',
+            },
             {
                 component: '404',
             },
