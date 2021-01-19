@@ -27,6 +27,9 @@
     },
     "dependencies": {
         "@antv/data-set": "^0.10.1",
+        "@antv/l7": "^2.3.7",
+        "@antv/l7-maps": "^2.3.7",
+        "@antv/l7-react": "^2.3.0",
         "@babel/runtime": "^7.3.1",
         "antd": "^3.26.13",
         "axios": "^0.19.0",
