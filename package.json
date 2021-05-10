@@ -39,7 +39,7 @@
         "dva": "^2.4.1",
         "enquire-js": "^0.2.1",
         "hash.js": "^1.1.7",
-        "lodash": "^4.17.19",
+        "lodash": "^4.17.21",
         "lodash-decorators": "^6.0.1",
         "md5": "^2.2.1",
         "memoize-one": "^5.0.0",
